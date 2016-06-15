@@ -13,6 +13,6 @@
         android:id="@+id/tv_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello11111111111111111 World!" />
+        android:text="Hellol World!" />
 
 </RelativeLayout>
