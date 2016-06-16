@@ -1,109 +1,68 @@
 package com.maibai.user.fragment;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.maibai.user.R;
+import com.maibai.user.adapter.MyGridAdapter;
+import com.maibai.user.adapter.RecommendedNearbyAdapter;
+import com.maibai.user.base.BaseFragment;
+import com.maibai.user.view.MyGridView;
+import com.maibai.user.view.ScrollListView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
-// * {@link ZeroYuanBuyFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ZeroYuanBuyFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ZeroYuanBuyFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class ZeroYuanBuyFragment extends BaseFragment {
 
-//    private OnFragmentInteractionListener mListener;
-
-    public ZeroYuanBuyFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ZeroYuanBuyFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ZeroYuanBuyFragment newInstance(String param1, String param2) {
-        ZeroYuanBuyFragment fragment = new ZeroYuanBuyFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private LinearLayout ll_gridetableLayout;
+    private ScrollListView lv_zero_shop;
+    private MyGridView gv_zero_shop;
+    private String[] img_text = {"口腔诊所", "美容美发", "KTV", "旅行服务", "家具建材", "饭店餐饮",
+            "电动车", "婚纱摄影", "婚纱摄影", "婚纱摄影", "婚纱摄影"};
+    private int[] imgs = {R.mipmap.icon_kouqiang, R.mipmap.icon_meirong,
+            R.mipmap.icon_ktv, R.mipmap.icon_lvxing,
+            R.mipmap.icon_jiaju, R.mipmap.icon_fandian,
+            R.mipmap.icon_diandong, R.mipmap.icon_hunsha, R.mipmap.icon_hunsha, R.mipmap.icon_hunsha, R.mipmap.icon_hunsha};
+    private List<String> mList = new ArrayList<String>();
+    private RecommendedNearbyAdapter mRecommendedNearbyAdapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    protected void initVariable() {
+        init();
+    }
+
+    private void init() {
+        {
+            for (int i = 0; i < 10; i++) {
+                mList.add("维多利亚渔港");
+            }
+            mRecommendedNearbyAdapter = new RecommendedNearbyAdapter(mContext, mList);
+            lv_zero_shop.setAdapter(mRecommendedNearbyAdapter);
+            MyGridAdapter adapter = new MyGridAdapter(mContext, img_text, imgs);
+            gv_zero_shop.setAdapter(adapter);
+            ll_gridetableLayout.setLayoutParams(new FrameLayout.LayoutParams(//动态设置宽度
+                    135 * img_text.length,
+                    LinearLayout.LayoutParams.MATCH_PARENT));
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_zero_yuan_buy, container, false);
+    protected int setContentView() {
+        return R.layout.activity_zero_purchase;
     }
-//
-//    // TODO: Rename method, update argument and hook method into UI event
-//    public void onButtonPressed(Uri uri) {
-//        if (mListener != null) {
-//            mListener.onFragmentInteraction(uri);
-//        }
-//    }
-//
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-//    }
-//
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//        mListener = null;
-//    }
-//
-//    /**
-//     * This interface must be implemented by activities that contain this
-//     * fragment to allow an interaction in this fragment to be communicated
-//     * to the activity and potentially other fragments contained in that
-//     * activity.
-//     * <p>
-//     * See the Android Training lesson <a href=
-//     * "http://developer.android.com/training/basics/fragments/communicating.html"
-//     * >Communicating with Other Fragments</a> for more information.
-//     */
-//    public interface OnFragmentInteractionListener {
-//        // TODO: Update argument type and name
-//        void onFragmentInteraction(Uri uri);
-//    }
+
+    @Override
+    protected void findViews(View rootView) {
+        ll_gridetableLayout =
+                (LinearLayout) rootView.findViewById(R.id.linearLayout_gridtableLayout);
+        gv_zero_shop = (MyGridView) rootView.findViewById(R.id.gv_zero_shop);
+        lv_zero_shop = (ScrollListView) rootView.findViewById(R.id.lv_zero_shop);
+    }
+
+    @Override
+    protected void setListensers() {
+
+    }
 }
