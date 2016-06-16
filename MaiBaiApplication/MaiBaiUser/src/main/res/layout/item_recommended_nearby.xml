@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_item_shop_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/icon_jiaju" />
+
+    <TextView
+        android:id="@+id/tv_item_shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/iv_item_shop_img"
+        android:text="维多利亚鱼港"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_item_shop_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_item_shop_name"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/iv_item_shop_img"
+        android:text="1.5km"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tv_item_shop_reduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_item_shop_distance"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/iv_item_shop_img"
+        android:drawableLeft="@mipmap/icon_jian"
+        android:drawablePadding="5dp"
+        android:text="在线支付满30减5元"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/bt_item_shop_check"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_bg_red"
+        android:text="立即买单"
+        android:textColor="@color/red" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/iv_item_shop_img"
+        android:layout_marginTop="10dp"
+        android:background="#77777777" />
+
+</RelativeLayout>

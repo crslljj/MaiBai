@@ -9,7 +9,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#20777777">
 
             <RelativeLayout
                 android:id="@+id/rl_zero_title"
@@ -66,6 +67,7 @@
             </RelativeLayout>
 
             <HorizontalScrollView
+                android:id="@+id/hl_zero_shop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/rl_zero_code">
@@ -80,23 +82,53 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-
-                        <GridView
-                            android:id="@+id/tablegrid"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_gravity="center"
-                            android:background="#ffffff"
-                            android:columnWidth="100dp"
-                            android:gravity="center"
-                            android:horizontalSpacing="1dp"
-                            android:scrollbarAlwaysDrawHorizontalTrack="true"
-                            android:scrollbarAlwaysDrawVerticalTrack="true"
-                            android:scrollbars="horizontal|vertical"
-                            android:verticalSpacing="1dp" />
+                        <com.maibai.user.view.MyGridView
+                            android:id="@+id/gv_zero_shop"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:horizontalSpacing="0.0dip"
+                            android:listSelector="@null"
+                            android:numColumns="4"
+                            android:scrollbars="none"
+                            android:stretchMode="columnWidth"
+                            android:verticalSpacing="0.0dip" />
                     </LinearLayout>
                 </FrameLayout>
             </HorizontalScrollView>
+
+            <ImageView
+                android:id="@+id/iv_zero_advertisement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hl_zero_shop"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/advertisement" />
+
+            <TextView
+                android:id="@+id/tv_zero_recommended_nearby"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/iv_zero_advertisement"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="附近推荐"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/tv_zero_recommended_nearby"
+                android:background="#77777777" />
+
+            <com.maibai.user.view.ScrollListView
+                android:id="@+id/lv_zero_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view"></com.maibai.user.view.ScrollListView>
         </RelativeLayout>
     </ScrollView>
 
