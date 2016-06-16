@@ -37,4 +37,7 @@
     <color name="viewfinder_mask">#47000000</color>
     <color name="backgroud">#ffffffff</color>
     <color name="navy_blue">#ff00aac0</color>
+    <color name="griditems_bg">#ffe8ecef</color>
+    <color name="commo_text_color">#ff333333</color>
+    <color name="line">#ffd3dde6</color>
 </resources>
