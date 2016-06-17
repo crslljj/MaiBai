@@ -19,7 +19,7 @@ import com.maibai.user.utils.LogUtil;
 public class HorizontalGridView extends LinearLayout {
 
     private Context mContext;
-    private GridView gridView;
+    private MyGridView gridView;
     private final int VISIBLECOLUMN = 4;
     private final int HORSPACE = 1;
     private int mItemWidth;
@@ -29,7 +29,7 @@ public class HorizontalGridView extends LinearLayout {
         this.setHorizontalScrollBarEnabled(true);
         mContext = context;
         View view = LayoutInflater.from(context).inflate(R.layout.horizontal_grid_view, this);
-        gridView = (GridView) view.findViewById(R.id.grid);
+        gridView = (MyGridView) view.findViewById(R.id.grid);
     }
 
     public void setAdapter(HorizontalGridViewAdapter mAdapter) {
@@ -50,13 +50,5 @@ public class HorizontalGridView extends LinearLayout {
         mAdapter.setmWidth(mItemWidth);
         gridView.setAdapter(mAdapter);
         LogUtil.d("setAdapter", "setAdapter");
-    }
-
-    @Override
-    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
-                MeasureSpec.AT_MOST);
-        LogUtil.d("onMeasure", "onMeasure");
-        super.onMeasure(widthMeasureSpec, expandSpec);
     }
 }
